@@ -1,5 +1,7 @@
-import numpy as np
+from game import Game
 import pandas as pd
+import numpy as np
+
 
 class Analyzer:
     
@@ -34,7 +36,7 @@ class Analyzer:
         """
         
         jackpots = (self.game_results.nunique(axis=1) == 1).sum()
-        return jackpots
+        return int(jackpots)
     
     
     

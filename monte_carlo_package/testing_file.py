@@ -11,7 +11,7 @@ class MonteCarloTest(unittest.TestCase):
     This class will unit test all of the methods for the Monte Carlo game simulator from the die, game, and analyzer classes.
     """
     
-    def test_init(self):
+    def test_init_die(self):
         """
         Testing the initializer in the die class to affirm faces is of the correct length as a numpy array.
         """
@@ -38,11 +38,31 @@ class MonteCarloTest(unittest.TestCase):
         die = Die(faces)
         rolls = die.roll(5)
         self.assertEqual(len(rolls), 5)
+    
+    
+    def test_current_state(self):
+        """
+        Testing the current state method in the die class to confirm the number of faces on the die.
+        """
+        die = Die(np.array([1, 2, 3, 4, 5, 6]))
+        current = die.current_state()
+        self.assertEqual(current.shape[0], 6)
+
 
         
         
         
 
+    def test_init_game(self):
+        """
+        Testing the initializer method in the game class to confirm it is creating the right number of dice.
+        """
+        die_1 = Die(np.array([1, 2, 3, 4, 5, 6]))
+        die_2 = Die(np.array([1, 2, 3, 4, 5, 6])) 
+        game = Game([die_1, die_2]) 
+        self.assertEqual(len(game.dice), 2)
+        
+        
     def test_play(self):
         """
         Testing the play method in the game class to confirm the play method is executing five times for one dice.
@@ -68,12 +88,23 @@ class MonteCarloTest(unittest.TestCase):
         wide = game.show('wide')
         narrow = game.show('narrow')
         self.assertEqual(wide.shape, (5, 1))
-        self.assertEqual(narrow.shape, (5, 2))
+        self.assertEqual(narrow.shape, (5, 3))
 
     
     
             
     
+    def test_init_analyzer(self):
+        """
+        Testing the initializer method in the analyzer class to confirm it is created correctly.
+        """
+        die = Die(np.array([1, 2, 3, 4, 5, 6]))
+        game = Game([die])
+        game.play(5)
+        analyzer = Analyzer(game)
+        self.assertIsInstance(analyzer, Analyzer)
+
+        
     def test_jackpot(self):
         """
         Testing the jackpot method in the analyzer class to check if the jackpots value is an integer.

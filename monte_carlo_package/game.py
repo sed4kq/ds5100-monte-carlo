@@ -1,5 +1,7 @@
-import numpy as np
+from die import Die
 import pandas as pd
+import numpy as np
+
 
 class Game:
     
