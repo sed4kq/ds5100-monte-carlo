@@ -1,3 +1,10 @@
+"""
+The Die Class
+
+This class represents a die with faces and custom weights (defaults to 1). It rolls the die and gets the current state of the die.
+"""
+
+
 import numpy as np
 import pandas as pd
 

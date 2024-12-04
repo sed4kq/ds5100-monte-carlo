@@ -1,4 +1,11 @@
-from game import Game
+"""
+The Analyzer Class
+
+This class analyzes the results of a Game. It will calculate the number of jackpots, the counts of each face value in each roll, and the distinct face combinations or permutations.
+"""
+
+
+from .game import Game
 import pandas as pd
 import numpy as np
 

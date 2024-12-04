@@ -1,9 +1,9 @@
 import unittest
 import pandas as pd
 import numpy as np
-from die import Die
-from game import Game
-from analyzer import Analyzer
+from .die import Die
+from .game import Game
+from .analyzer import Analyzer
 
 
 class MonteCarloTest(unittest.TestCase):

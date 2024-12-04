@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name = 'monte_carlo_package',
     
-    version = '0.1',
+    version = '1.0',
     
     url = 'https://github.com/sed4kq/ds5100-monte-carlo',
     

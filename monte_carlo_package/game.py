@@ -1,4 +1,11 @@
-from die import Die
+"""
+The Game Class
+
+This class simulates rolling one or more dice in a game. It can roll a specified number of times and outputs the results in a specified format.
+"""
+
+
+from .die import Die
 import pandas as pd
 import numpy as np
 
