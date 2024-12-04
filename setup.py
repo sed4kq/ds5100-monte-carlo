@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name = 'monte_carlo_simulator',
+    name = 'monte_carlo_package',
     
     version = '0.1',
     
