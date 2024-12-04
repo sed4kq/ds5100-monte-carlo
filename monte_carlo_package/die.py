@@ -82,10 +82,7 @@ class Die:
     
     def current_state(self):
         """
-        This will return the current state of the die.
-        
-        Returns:
-            A copy of the private DataFrame of all faces and weights
+        This will return the current state of the die as a DataFrame of all faces and weights.
         """
         
         return self.die.copy()

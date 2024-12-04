@@ -49,9 +49,6 @@ class Game:
         Arguments:
             shape: the format of the data (wide or narrow), the default for this is wide   (string)
             
-        Returns:
-            The results as a dataframe in the specified format.
-            
         Errors to Raise:
             ValueError: if the reuqested `form` is not wide or narrow
         """
