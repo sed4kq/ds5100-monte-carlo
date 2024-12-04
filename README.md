@@ -3,10 +3,15 @@
 # Metadata
 
 Project Name: monte_carlo_package
+
 Author: S. Delaney
+
 License: MIT
+
 Version: 1.0
+
 Description: Monte Carlo simulator package for dice-based games.
+
 
 
 # Synopsis
