@@ -51,30 +51,39 @@ analyzer.permutation_count()
 ## Die
 __init__(faces)
   - Initializes a Die with faces
+  
 weight(face_value, new_weight)
   - Sets the weight for a face value
+  
 roll(num_rolls=1)
   - Rolls the die a given number of times
+  
 current_state()
   - Returns the current state of the die
 
 ## Game
 __init__(dice)
   - Initializes a Game with Die objects.
+  
 play(num_rolls)
   - Rolls all dice a given number of times
+  
 show(form='wide')
   - Displays the results as either a 'wide' or 'narrow' format.
 
 ## Analyzer
 __init__(game)
-  - Initializes an Analyzer with a Game object.
+  - Initializes an Analyzer with a Game object
+  
 jackpot()
   - Outputs the number of rolls where all dice show the same face
+  
 roll_face_counts()
   - Outputs a DataFrame containing the number of times each face value was rolled
+  
 combo_count()
   - Outputs a DataFrame containing the number of distinct face combinations
+  
 permutation_count()
   - Outputs a DataFrame containing the number of distinct face permutations
 
