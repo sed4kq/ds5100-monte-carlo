@@ -1,3 +1,3 @@
-from . monte_carlo_package import Die
-from . monte_carlo_package import Game
-from . monte_carlo_package import Analyzer
+from .die import Die
+from .game import Game
+from .analyzer import Analyzer
