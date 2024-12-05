@@ -13,9 +13,6 @@ class Die:
     
     """
     This class represents a die that can be rolled one or more times.
-
-    Attributes:
-        die: A private pandas DataFrame containing all faces (as the index) and their respective weights.
     """
 
     def __init__(self, faces):
