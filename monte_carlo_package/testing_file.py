@@ -1,9 +1,9 @@
 import unittest
 import pandas as pd
 import numpy as np
-from .die import Die
-from .game import Game
-from .analyzer import Analyzer
+from monte_carlo_package.die import Die
+from monte_carlo_package.game import Game
+from monte_carlo_package.analyzer import Analyzer
 
 
 class MonteCarloTest(unittest.TestCase):
@@ -160,5 +160,3 @@ class MonteCarloTest(unittest.TestCase):
         
 if __name__ == '__main__':
     unittest.main()
-    
-    

@@ -1,10 +1,3 @@
-"""
-The Analyzer Class
-
-This class analyzes the results of a Game. It will calculate the number of jackpots, the counts of each face value in each roll, and the distinct face combinations or permutations.
-"""
-
-
 from .game import Game
 import pandas as pd
 import numpy as np
@@ -13,7 +6,7 @@ import numpy as np
 class Analyzer:
     
     """
-    This class will take the results of a single game and analyze the some statistical properties of the results.
+    This class will take the results of a single game and analyze the some statistical properties of the results (jackpots, the number of times each face value was rolled, and distinct face combinations and permutations).
     """
     
     def __init__(self, game):
@@ -27,7 +20,7 @@ class Analyzer:
             ValueError: if the input is not a Game object
         """
         
-        if not isinstance(game, Game):
+        if type(game) is not Game:
             raise ValueError("`game` must be a Game object")
         
         self.game_results = game.show('wide').copy()
@@ -70,7 +63,8 @@ class Analyzer:
         
         combos = self.game_results.apply(lambda x: tuple(sorted(x)), axis=1)
         combo_counts = combos.value_counts()
-        return pd.DataFrame({'count': combo_counts}).set_index(combo_counts.index)
+        combo_multi = pd.MultiIndex.from_tuples(combo_counts.index)
+        return pd.DataFrame({'count': combo_counts.values}, index=combo_multi)
     
     
     
@@ -85,4 +79,5 @@ class Analyzer:
         
         perms = self.game_results.apply(lambda x: tuple(x), axis=1)
         perm_counts = perms.value_counts()
-        return pd.DataFrame({'count': perm_counts}).set_index(perm_counts.index)
+        perm_multi = pd.MultiIndex.from_tuples(perm_counts.index)
+        return pd.DataFrame({'count': perm_counts.values}, index=perm_multi)

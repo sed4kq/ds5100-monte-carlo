@@ -1,10 +1,3 @@
-"""
-The Game Class
-
-This class simulates rolling one or more dice in a game. It can roll a specified number of times and outputs the results in a specified format.
-"""
-
-
 from .die import Die
 import pandas as pd
 import numpy as np
@@ -13,12 +6,12 @@ import numpy as np
 class Game:
     
     """
-    This class will simulate the rolling of one or more dice within a game.
+    This class will simulate the rolling of one or more dice within a game. It can roll a specified number of times and outputs the results in a specified format.
     """
     
     def __init__(self, dice):
         """
-        This initializes the game by taking a list of Die objects with the same number of sides and faces, but potentially different weights.
+        This initializes the game by taking a list of Die objects with the same number of faces, but potentially different weights.
         
         Arguments:
             dice: a list of similar Die objects
@@ -59,5 +52,3 @@ class Game:
             return self.results.stack().reset_index(name='outcome')
         else:
             raise ValueError("Invalid format. Must be `wide` or `narrow`")
-    
-    

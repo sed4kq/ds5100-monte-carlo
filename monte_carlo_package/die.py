@@ -1,10 +1,3 @@
-"""
-The Die Class
-
-This class represents a die with faces and custom weights (defaults to 1). It rolls the die and gets the current state of the die.
-"""
-
-
 import numpy as np
 import pandas as pd
 
@@ -12,7 +5,7 @@ import pandas as pd
 class Die:
     
     """
-    This class represents a die that can be rolled one or more times.
+    This class represents a die with faces and custom weights (defaults to 1) that can be rolled one or more times and produces the current state of the die.
     """
 
     def __init__(self, faces):
@@ -27,7 +20,7 @@ class Die:
             ValueError: if faces contains any duplicate values
         """
         
-        if not isinstance(faces, np.ndarray):
+        if type(faces) is not np.ndarray:
             raise TypeError("`faces` must be stored as a numpy array.")
         if len(faces) != len(np.unique(faces)):
             raise ValueError("`faces` must be different.")
@@ -47,11 +40,12 @@ class Die:
 
         Errors to Raise:
             IndexError: if the face_value is not found in the dataframe
-            TypeError: if the new_weight is not in numeric form
+            TypeError: if the new_weight cannot be in numeric form
         """
         
         if face_value not in self.die.index:
             raise IndexError("`face_value` is not found in self.die ")
+        
         try:
             new_weight = float(new_weight)
         except ValueError:
@@ -72,14 +66,13 @@ class Die:
             A list of all outcomes from the roll
         """
         
-        dice_rolls = list(self.die.sample(n = num_rolls, weights = 'weight', replace = True).index)
-        return dice_rolls
+        return list(self.die.sample(n = num_rolls, weights = 'weight', replace = True).index)
     
     
     
     def current_state(self):
         """
-        This will return the current state of the die as a DataFrame of all faces and weights.
+        This will return the current state of the die as a copy of the DataFrame of all faces and weights.
         """
         
         return self.die.copy()
