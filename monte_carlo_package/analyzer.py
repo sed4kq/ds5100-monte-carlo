@@ -63,8 +63,7 @@ class Analyzer:
         
         combos = self.game_results.apply(lambda x: tuple(sorted(x)), axis=1)
         combo_counts = combos.value_counts()
-        combo_multi = pd.MultiIndex.from_tuples(combo_counts.index)
-        return pd.DataFrame({'count': combo_counts.values}, index=combo_multi)
+        return pd.DataFrame({'count': combo_counts.values}, index=combo_counts.index)
     
     
     
@@ -79,5 +78,4 @@ class Analyzer:
         
         perms = self.game_results.apply(lambda x: tuple(x), axis=1)
         perm_counts = perms.value_counts()
-        perm_multi = pd.MultiIndex.from_tuples(perm_counts.index)
-        return pd.DataFrame({'count': perm_counts.values}, index=perm_multi)
+        return pd.DataFrame({'count': perm_counts.values}, index=perm_counts.index)
